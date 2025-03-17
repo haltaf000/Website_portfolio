@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['haideraltaf.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['haideraltaf.onrender.com', "www.haider-altaf.com", "haider-ataf.com", 'localhost', '127.0.0.1']
 
 
 # Application definition
