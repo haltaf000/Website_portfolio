@@ -1,0 +1,43 @@
+{% extends "main/layout.html" %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block content %}
+<section class="projectContainer">
+    <div class="projectItem">
+        <div class="nameContainer">
+            <h1>{{ project.title }}</h1>
+            <div class="outreach" style="margin-top: 16px;">
+                <i class="fa-solid fa-calendar"></i>
+                <small class="darkerText">Created: {{ project.created_at|date:"F j, Y" }}</small>
+                <i class="fa-solid fa-rotate"></i>
+                <small class="darkerText">Updated: {{ project.updated_at|date:"F j, Y" }}</small>
+            </div>
+        </div>
+
+        <article class="aboutMe" style="margin-top: 32px;">
+            <p>{{ project.description|linebreaks }}</p>
+
+            {% if project.url %}
+            <div class="outreach" style="margin-top: 24px;">
+                <a href="{{ project.url }}" target="_blank" class="outreach">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <p>View Live Project</p>
+                </a>
+            </div>
+            {% endif %}
+        </article>
+
+        <div class="outreach" style="margin-top: 48px; gap: 32px;">
+            {% if user.is_authenticated and user.is_superuser %}
+            <a href="{% url 'main:project_update' project.pk %}" class="adminLink">Edit Project</a>
+            <a href="{% url 'main:project_delete' project.pk %}" class="adminLink">Delete Project</a>
+            {% endif %}
+            <a href="{% url 'main:project_list' %}" class="outreach">
+                <i class="fa-solid fa-arrow-left"></i>
+                <p>All Projects</p>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

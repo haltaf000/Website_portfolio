@@ -1,0 +1,17 @@
+{% extends "main/layout.html" %}
+
+{% block title %}
+{% if object %}Edit {{ object.title }}{% else %}New Blog{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>{% if object %}Edit Blog{% else %}Create New Blog{% endif %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<a href="{% url 'main:blog_list' %}">Cancel</a>
+{% endblock %}

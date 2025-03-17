@@ -1,0 +1,38 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Blogs{% endblock %}
+
+{% block content %}
+<section class="projectContainer">
+    <div class="nameContainer">
+        <h1>Blog Posts</h1>
+        {% if user.is_authenticated and user.is_superuser %}
+        <a href="{% url 'main:blog_create' %}" class="outreach">
+            <i class="fa-solid fa-plus"></i>
+            <p>Create New Blog</p>
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="projectItem">
+        <div>
+            {% for blog in blogs %}
+            <div class="projectItem">
+                <h3><a href="{% url 'main:blog_detail' blog.slug %}">{{ blog.title }}</a></h3>
+                <small class="darkerText">{{ blog.created_at|date:"F j, Y" }}</small>
+                {% if user.is_authenticated and user.is_superuser %}
+                <div class="outreach" style="margin-top: 12px;">
+                    <a href="{% url 'main:blog_update' blog.slug %}" class="adminLink">Edit</a>
+                    <a href="{% url 'main:blog_delete' blog.slug %}" class="adminLink">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+            {% if not forloop.last %}
+            <hr class="divider">{% endif %}
+            {% empty %}
+            <p class="darkerText">No blogs available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

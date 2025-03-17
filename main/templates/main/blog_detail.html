@@ -1,0 +1,44 @@
+{% extends "main/layout.html" %}
+
+{% block title %}{{ blog.title }} - The Blog Times{% endblock %}
+
+{% block content %}
+<div class="nyt-article">
+    <!-- Title -->
+    <h4 class="nyt-headline">{{ blog.title }}</h4>
+
+    <!-- Publish and Update Dates -->
+    <div class="nyt-meta">
+        <p class="nyt-date">
+            <i class="fa-solid fa-calendar"></i>
+            Published: {{ blog.created_at|date:"F j, Y" }}
+        </p>
+        <p class="nyt-date">
+            <i class="fa-solid fa-rotate"></i>
+            Updated: {{ blog.updated_at|date:"F j, Y" }}
+        </p>
+    </div>
+
+    <!-- Big Dividing Line -->
+    <hr class="nyt-divider">
+
+    <!-- Article Content -->
+    <div class="nyt-content">
+        {{ blog.content|linebreaks }}
+    </div>
+
+    <!-- Footer with Actions -->
+    <div class="nyt-footer">
+        {% if user.is_authenticated and user.is_superuser %}
+        <div class="nyt-admin-actions">
+            <a href="{% url 'main:blog_update' blog.slug %}" class="nyt-admin-link">Edit Post</a>
+            <a href="{% url 'main:blog_delete' blog.slug %}" class="nyt-admin-link">Delete Post</a>
+        </div>
+        {% endif %}
+        <a href="{% url 'main:blog_list' %}" class="nyt-back-link">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Blog
+        </a>
+    </div>
+</div>
+{% endblock %}

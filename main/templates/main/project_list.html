@@ -1,0 +1,47 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Production Systems{% endblock %}
+
+{% block content %}
+<section class="projectContainer">
+    <div class="nameContainer">
+        <h1>Production Systems</h1>
+        {% if user.is_authenticated and user.is_superuser %}
+        <a href="{% url 'main:project_create' %}" class="outreach">
+            <i class="fa-solid fa-plus"></i>
+            <p>Create New Project</p>
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="projectItem">
+        <div>
+            {% for project in projects %}
+            <div class="projectItem">
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                    <h3>{{ project.title }}</h3>
+                    <small class="darkerText">v{{ project.version }}</small>
+                </div>
+                <p class="darkerText">{{ project.description }}</p>
+                <div class="outreach">
+                    {% if project.url %}
+                    <a href="{{ project.url }}" class="outreach">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <p>Live Demo</p>
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'main:project_detail' project.pk %}" class="outreach">
+                        <i class="fa-solid fa-code"></i>
+                        <p>Technical Details</p>
+                    </a>
+                </div>
+            </div>
+            {% if not forloop.last %}
+            <hr class="divider">{% endif %}
+            {% empty %}
+            <p class="darkerText">No projects available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

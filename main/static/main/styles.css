@@ -1,0 +1,328 @@
+:root {
+    --primary-color: #adebf0;
+    --secondary-color: #1fc5d8;
+    --accent-color: #1fb6d8;
+    --bg-color: #0d1215;
+    --text-color: #ffffff;
+    --card-bg-color: #1a1e2a;
+    --border-color: #2a303d;
+    --hover-color: #1fb6d8;
+    --nyt-serif: 'Georgia', serif;
+    --nyt-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition-duration: 200ms;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    padding: 14px;
+}
+
+.darkerText {
+    color: var(--secondary-color);
+}
+
+header,
+main,
+footer {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+p {
+    font-size: 1.05em;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+nav {
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+nav a {
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
+}
+
+nav a:hover {
+    color: var(--hover-color);
+}
+
+main,
+section,
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    gap: 64px;
+}
+
+section {
+    gap: 48px;
+}
+
+.nameContainer {
+    gap: 8px;
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.imgContainer {
+    border-radius: 100%;
+    max-width: 114px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.stats>div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 14px;
+}
+
+.stats div i {
+    font-size: 1.4em;
+}
+
+.stats div div {
+    display: grid;
+    place-items: center;
+    min-width: 40px;
+}
+
+.aboutMe {
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+.aboutMe img {
+    max-width: 100%;
+    margin: 24px 0;
+    border-radius: 8px;
+}
+
+.fa-calendar,
+.fa-rotate {
+    margin-right: 8px;
+}
+
+.outreach {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    cursor: pointer;
+    width: fit-content;
+    margin-right: auto;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.outreach:hover {
+    color: var(--hover-color);
+}
+
+.outreach i {
+    transform: rotate(-45deg);
+}
+
+.projectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.projectContainer h3 a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.projectContainer h3 a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+.projectItem {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.headerText {
+    margin-bottom: 24px;
+}
+
+.projectItem div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.adminLink {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.adminLink:hover {
+    color: var(--hover-color);
+}
+
+.divider {
+    border: 0.5px solid var(--border-color);
+    margin: 24px 0;
+}
+
+.projectItem .outreach {
+    margin-left: -8px;
+}
+
+.projectItem .projectItem {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (min-width: 640px) {
+    .statsContainer {
+        flex-direction: row;
+    }
+
+    .stats {
+        gap: 0px;
+    }
+}
+
+.nyt-article {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nyt-headline {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+}
+
+.nyt-meta {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 24px;
+}
+
+.nyt-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.nyt-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 32px 0;
+}
+
+.nyt-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 48px;
+}
+
+.nyt-content p {
+    margin-bottom: 24px;
+}
+
+.nyt-footer {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nyt-admin-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.nyt-admin-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nyt-admin-link:hover {
+    color: var(--hover-color);
+}
+
+.nyt-back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nyt-back-link:hover {
+    color: var(--hover-color);
+}
+
+.fa-calendar,
+.fa-rotate {
+    color: var(--secondary-color);
+}

@@ -1,0 +1,84 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Home | My Portfolio{% endblock %}
+
+{% block content %}
+<section>
+<div class="nameContainer">
+    <h1>Haider Altaf</h1>
+    <p class="darkerText">I write code and build projects!</p>
+</div>
+
+<div class="statsContainer">
+    <div class="imgContainer">
+        <img src="https://media.licdn.com/dms/image/v2/C4D03AQHq1ULSb3uTqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620674623655?e=1747872000&v=beta&t=7kccdkvFAM5RQk9pY6Wd1uIRKCYXW-a_plMzKoiiAq4" alt="prfile_img">
+    </div>
+    <div class="stats darkerText">
+        <div>
+            <div>
+                <i class="fa-solid fa-computer"></i>
+            </div>
+            <p>Backend Engineer interested in MLOP's and Data Science</p>
+        </div>
+        <div>
+            <div>
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <p>Python, JavaScript, C++</p>
+        </div>
+        <div >
+            <div>
+                <i class="fa-solid fa-chess-board"></i>
+            </div>
+            <p>1800 chess.com ELO</p>
+        </div>
+        
+    </div>
+</div>
+<p class="aboutMe">
+    Hi, I'm Haider Altaf, a software engineer who loves building cool things with code.
+    In addition to coding, I also play chess in my free time! Furthermore, I also teach 
+    chess and coding online for those who want to take their skills to the next level.
+</p>
+<div>
+    <a class="outreach darkerText"
+        href="mailto:haideraltaf804@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Haider,%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out.">
+        <i class="fa-solid fa-arrow-right"></i>
+        <p>Email Me</p>
+    </a>
+</div>
+
+</section>
+
+<section class="projectContainer">
+    <h2 class="darkerText headerText">Latest Blogs</h2>
+
+    <div class="projectItem">
+        <div>
+            {% for blog in latest_blogs %}
+                <h3><a href="{% url 'main:blog_detail' blog.slug %}">{{ blog.title }}</a></h3>
+                <p>{{ blog.content|truncatewords:20 }}</p>
+                <small class="darkerText">({{ blog.created_at|date:"F j, Y" }})</small>
+            {% empty %}
+                <p>No blogs available.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h2 class="darkerText headerText">Latest Projects</h2>
+
+    <div class="projectItem">
+        <div>
+            {% for project in latest_projects %}
+                <h3><a href="{% url 'main:project_detail' project.slug %}">{{ project.title }}</a></h3>
+                <p>{{ project.description|truncatewords:20 }}</p>
+            {% empty %}
+                <p>No projects available.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock %}
