@@ -4,81 +4,157 @@
 
 {% block content %}
 <section>
-<div class="nameContainer">
-    <h1>Haider Altaf</h1>
-    <p class="darkerText">I write code and build projects!</p>
-</div>
-
-<div class="statsContainer">
-    <div class="imgContainer">
-        <img src="https://media.licdn.com/dms/image/v2/C4D03AQHq1ULSb3uTqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620674623655?e=1747872000&v=beta&t=7kccdkvFAM5RQk9pY6Wd1uIRKCYXW-a_plMzKoiiAq4" alt="prfile_img">
+    <!-- Name and Tagline -->
+    <div class="nameContainer">
+        <h1>Haider Altaf</h1>
+        <p class="darkerText">Building ideas with code, one project at a time.</p>
     </div>
-    <div class="stats darkerText">
-        <div>
-            <div>
-                <i class="fa-solid fa-computer"></i>
-            </div>
-            <p>Backend Engineer interested in MLOP's and Data Science</p>
-        </div>
-        <div>
-            <div>
-                <i class="fa-solid fa-code"></i>
-            </div>
-            <p>Python, JavaScript, C++</p>
-        </div>
-        <div >
-            <div>
-                <i class="fa-solid fa-chess-board"></i>
-            </div>
-            <p>1800 chess.com ELO</p>
-        </div>
-        
-    </div>
-</div>
-<p class="aboutMe">
-    Hi, I'm Haider Altaf, a software engineer who loves building cool things with code.
-    In addition to coding, I also play chess in my free time! Furthermore, I also teach 
-    chess and coding online for those who want to take their skills to the next level.
-</p>
-<div>
-    <a class="outreach darkerText"
-        href="mailto:haideraltaf804@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Haider,%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out.">
-        <i class="fa-solid fa-arrow-right"></i>
-        <p>Email Me</p>
-    </a>
-</div>
 
+    <!-- Stats Container -->
+    <div class="statsContainer">
+        <!-- Profile Image -->
+        <div class="imgContainer">
+            <img src="https://media.licdn.com/dms/image/v2/C4D03AQHq1ULSb3uTqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620674623655?e=1747872000&v=beta&t=7kccdkvFAM5RQk9pY6Wd1uIRKCYXW-a_plMzKoiiAq4"
+                alt="profile_img">
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats darkerText">
+            <div>
+                <div>
+                    <i class="fa-solid fa-computer"></i>
+                </div>
+                <p>Backend Engineer interested in MLOps and Data Science</p>
+            </div>
+            <div>
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <p>Python, JavaScript, C++</p>
+            </div>
+            <div>
+                <div>
+                    <i class="fa-solid fa-chess-board"></i>
+                </div>
+                <p>1800 chess.com ELO</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Me Section -->
+    <p class="aboutMe">
+        Hi, I'm Haider Altaf, a passionate software engineer specializing in backend development. I'm fascinated by the
+        worlds of <strong>MLOps</strong> and <strong>Data Science</strong>, where code meets data-driven solutions.
+        Outside
+        of work, I sharpen my problem-solving skills as a chess enthusiast with an 1800 ELO on Chess.com. I also enjoy
+        sharing my knowledge through teaching chess and coding online, empowering others to excel in their journey.
+    </p>
+
+    <!-- Info Container (Tech Stack & Hobbies) -->
+    <div class="infoContainer">
+        <!-- Tech Stack Section -->
+        <div class="techStack">
+            <h2 class="sectionHeader"><i class="fa-solid fa-laptop-code"></i> Tech Stack</h2>
+            <div class="skillsGrid">
+                <!-- Frameworks & Tools Card -->
+                <div class="skillCard card">
+                    <div class="skillHeader">
+                        <i class="fa-solid fa-toolbox"></i>
+                        <h3>Frameworks & Tools</h3>
+                    </div>
+                    <ul class="skillList">
+                        <li>Flask/Django</li>
+                        <li>TensorFlow</li>
+                        <li>Docker/AWS</li>
+                    </ul>
+                </div>
+
+                <!-- Data Science Card -->
+                <div class="skillCard card">
+                    <div class="skillHeader">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Data Science</h3>
+                    </div>
+                    <ul class="skillList">
+                        <li>Pandas/NumPy</li>
+                        <li>Matplotlib</li>
+                        <li>Scikit-learn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hobbies Section -->
+        <div class="hobbies">
+            <h2 class="sectionHeader"><i class="fa-solid fa-chess-queen"></i> Hobbies</h2>
+            <div class="hobbiesGrid">
+                <!-- Competitive Chess Card -->
+                <div class="hobbyCard card">
+                    <i class="fa-solid fa-chess-board hobbyIcon"></i>
+                    <div>
+                        <h3>Competitive Chess</h3>
+                        <p class="darkerText">1800 ELO</p>
+                    </div>
+                </div>
+
+                <!-- Tech Education Card -->
+                <div class="hobbyCard card">
+                    <i class="fa-solid fa-book-open hobbyIcon"></i>
+                    <div>
+                        <h3>Tech Education</h3>
+                        <p class="darkerText">Teaching coding & chess online</p>
+                    </div>
+                </div>
+
+                <!-- Outdoor Adventures Card -->
+                <div class="hobbyCard card">
+                    <i class="fa-solid fa-mountain-sun hobbyIcon"></i>
+                    <div>
+                        <h3>Outdoor Adventures</h3>
+                        <p class="darkerText">Basketball, Cricket, Tennis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outreach Section -->
+    <div>
+        <a class="outreach darkerText"
+            href="mailto:haideraltaf804@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Haider,%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out.">
+            <i class="fa-solid fa-arrow-right"></i>
+            <p class="darkerText">Email Me</p>
+        </a>
+    </div>
 </section>
 
+<!-- Projects and Blogs Section -->
 <section class="projectContainer">
+    <!-- Latest Blogs -->
     <h2 class="darkerText headerText">Latest Blogs</h2>
-
     <div class="projectItem">
         <div>
             {% for blog in latest_blogs %}
-                <h3><a href="{% url 'main:blog_detail' blog.slug %}">{{ blog.title }}</a></h3>
-                <p>{{ blog.content|truncatewords:20 }}</p>
-                <small class="darkerText">({{ blog.created_at|date:"F j, Y" }})</small>
+            <h3><a href="{% url 'main:blog_detail' blog.slug %}">{{ blog.title }}</a></h3>
+            <p>{{ blog.content|truncatewords:20 }}</p>
+            <small class="darkerText">({{ blog.created_at|date:"F j, Y" }})</small>
             {% empty %}
-                <p>No blogs available.</p>
+            <p>No blogs available.</p>
             {% endfor %}
         </div>
     </div>
 
+    <!-- Latest Projects -->
     <h2 class="darkerText headerText">Latest Projects</h2>
-
     <div class="projectItem">
         <div>
             {% for project in latest_projects %}
-                <h3><a href="{% url 'main:project_detail' project.slug %}">{{ project.title }}</a></h3>
-                <p>{{ project.description|truncatewords:20 }}</p>
+            <h3><a href="{% url 'main:project_detail' project.slug %}">{{ project.title }}</a></h3>
+            <p>{{ project.description|truncatewords:20 }}</p>
             {% empty %}
-                <p>No projects available.</p>
+            <p>No projects available.</p>
             {% endfor %}
         </div>
     </div>
-
 </section>
-
-
 {% endblock %}

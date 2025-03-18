@@ -1,14 +1,43 @@
 :root {
-    --primary-color: #adebf0;
-    --secondary-color: #1fc5d8;
-    --accent-color: #1fb6d8;
-    --bg-color: #0d1215;
-    --text-color: #ffffff;
-    --card-bg-color: #1a1e2a;
-    --border-color: #2a303d;
-    --hover-color: #1fb6d8;
+    --primary-color: #4fc3f7;
+        /* Bright Aqua */
+        --secondary-color: #81d4fa;
+        /* Light Sky Blue */
+        --accent-color: #ffca28;
+        /* Soft Amber */
+        --bg-color: #0d1215;
+        /* Dark Background */
+        --text-color: #f5f5f5;
+        /* Bright Off-White for Readability */
+        --card-bg-color: #1e272e;
+        /* Dark Gray for Cards */
+        --border-color: #37474f;
+        /* Medium Gray for Borders */
+        --hover-color: #29b6f6;
     --nyt-serif: 'Georgia', serif;
     --nyt-sans: 'Inter', sans-serif;
+
+    /* Typography Scale */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-md: 1.125rem;
+    /* 18px */
+    --font-size-lg: 1.25rem;
+    /* 20px */
+    --font-size-xl: 1.5rem;
+    /* 24px */
+    --font-size-xxl: 2rem;
+    /* 32px */
+    --font-size-xxxl: 2.5rem;
+    /* 40px */
+
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
 }
 
 * {
@@ -27,10 +56,14 @@ body {
     flex-direction: column;
     gap: 72px;
     padding: 14px;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
 }
 
 .darkerText {
     color: var(--secondary-color);
+    font-weight: var(--font-weight-medium);
 }
 
 header,
@@ -42,7 +75,86 @@ footer {
 }
 
 p {
-    font-size: 1.05em;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.7;
+}
+
+/* Headings */
+h1 {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-color);
+}
+
+h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-color);
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+}
+
+a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+/* Lists */
+ul,
+ol {
+    font-size: var(--font-size-md);
+}
+
+li {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+}
+
+/* Cards */
+.card {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.card h3 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+}
+
+.card p {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-regular);
+}
+
+/* Icons */
+i {
+    font-size: var(--font-size-lg);
+}
+
+/* Buttons and Call-to-Actions */
+.outreach {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
 }
 
 header {
@@ -149,11 +261,91 @@ section {
     border-radius: 8px;
 }
 
-.fa-calendar,
-.fa-rotate {
-    margin-right: 8px;
+/* Tech Stack & Hobbies Section */
+.infoContainer {
+    display: grid;
+    gap: 40px;
 }
 
+.sectionHeader {
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.skillsGrid,
+.hobbiesGrid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.skillCard {
+    padding: 20px;
+}
+
+.skillHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.skillHeader i {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+}
+
+.skillHeader h4 {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.skillList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.skillList li {
+    padding: 8px 12px;
+    background: var(--bg-color);
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+.hobbyCard {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.hobbyCard:hover {
+    transform: translateY(-3px);
+}
+
+.hobbyIcon {
+    font-size: 1.8em;
+    color: var(--secondary-color);
+    min-width: 50px;
+    text-align: center;
+}
+
+.hobbyCard h4 {
+    margin-bottom: 6px;
+    color: var(--primary-color);
+}
+
+/* Outreach Section */
 .outreach {
     display: flex;
     align-items: center;
@@ -173,6 +365,7 @@ section {
     transform: rotate(-45deg);
 }
 
+/* Projects Section */
 .projectContainer {
     display: flex;
     flex-direction: column;
@@ -209,41 +402,39 @@ section {
     gap: 14px;
 }
 
-.adminLink {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.adminLink:hover {
-    color: var(--hover-color);
-}
-
-.divider {
-    border: 0.5px solid var(--border-color);
-    margin: 24px 0;
-}
-
-.projectItem .outreach {
-    margin-left: -8px;
-}
-
-.projectItem .projectItem {
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
-@media (min-width: 640px) {
+/* Responsive Design */
+@media (max-width: 640px) {
     .statsContainer {
-        flex-direction: row;
+        flex-direction: column;
     }
 
-    .stats {
-        gap: 0px;
+    .skillsGrid,
+    .hobbiesGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .hobbyCard {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sectionHeader {
+        font-size: 1.4em;
     }
 }
 
+@media (min-width: 768px) {
+    .infoContainer {
+        grid-template-columns: 2fr 1fr;
+        gap: 32px;
+    }
+
+    .hobbiesGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Blog/Article Styles */
 .nyt-article {
     max-width: 700px;
     margin: 0 auto;
@@ -251,14 +442,14 @@ section {
 }
 
 .nyt-headline {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-bold);
     color: var(--primary-color);
     margin-bottom: 16px;
 }
 
 .nyt-meta {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     color: var(--secondary-color);
     margin-bottom: 24px;
 }
@@ -278,7 +469,7 @@ section {
 }
 
 .nyt-content {
-    font-size: 1.1rem;
+    font-size: var(--font-size-md);
     line-height: 1.8;
     color: var(--text-color);
     margin-bottom: 48px;
@@ -289,7 +480,7 @@ section {
 }
 
 .nyt-footer {
-    font-size: 0.9rem;
+    font-size: var(--font-size-sm);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -303,7 +494,7 @@ section {
 .nyt-admin-link {
     color: var(--accent-color);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: var(--font-weight-medium);
 }
 
 .nyt-admin-link:hover {
