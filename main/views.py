@@ -1,17 +1,43 @@
-# main/views.py
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from django.urls import reverse_lazy
 from .models import Blog, Project
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.cache import cache
+import requests
+
+def get_chess_elo():
+    cache_key = 'chess_rapid_elo'
+    elo = cache.get(cache_key)
+    
+    if not elo:
+        url = "https://api.chess.com/pub/player/haltaff/stats"
+        headers = {"User-Agent": "my-chess-app/1.0"}
+        
+        try:
+            response = requests.get(url, headers=headers)
+            response.raise_for_status()
+            data = response.json()
+            elo = data["chess_rapid"]["last"]['rating']
+            cache.set(cache_key, elo, 300)  # Cache for 5 minutes
+        except (requests.exceptions.HTTPError, KeyError):
+            elo = None
+        except Exception:
+            elo = None
+    
+    return elo
 
 # Home Page
 class HomeView(TemplateView):
     template_name = "main/home.html"
     
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['latest_blogs'] = Blog.objects.order_by('-created_at')[:3]
-        context['latest_projects'] = Project.objects.order_by('-created_at')[:3]
+        context = super().get_context_data(**kwargs) 
+        context.update({
+            'latest_blogs': Blog.objects.order_by('-created_at')[:3],
+            'latest_projects': Project.objects.order_by('-created_at')[:3],
+            'rapid_elo': get_chess_elo() or 'Unavailable'
+    })
+       
         return context
 
 # Blog Views
