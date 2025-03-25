@@ -3,19 +3,40 @@ from django.urls import reverse_lazy
 from .models import Blog, Project
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.core.cache import cache
-
+from django.views.generic import TemplateView
+import requests
+from django.core.cache import cache
 
 # Home Page
 class HomeView(TemplateView):
     template_name = "main/home.html"
     
+    def get_chess_rating(self):
+        cached_rating = cache.get('rapid_rating')
+        if cached_rating:
+            return cached_rating
+            
+        url = "https://api.chess.com/pub/player/haltaff/stats"
+        headers = {"User-Agent": "my-personal-site/1.0 (https://yourdomain.com)"}
+        
+        try:
+            response = requests.get(url, headers=headers)
+            response.raise_for_status()
+            data = response.json()
+            rating = data["chess_rapid"]["last"]["rating"]
+            # Cache for 10 minutes (600 seconds)
+            cache.set('rapid_rating', rating, 600)
+            return rating
+        except (requests.exceptions.RequestException, KeyError):
+            return None
+
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs) 
+        context = super().get_context_data(**kwargs)
         context.update({
             'latest_blogs': Blog.objects.order_by('-created_at')[:3],
             'latest_projects': Project.objects.order_by('-created_at')[:3],
-            })
-       
+            'rapid_elo': self.get_chess_rating()
+        })
         return context
 
 # Blog Views
