@@ -14,7 +14,7 @@ class HomeView(TemplateView):
         context.update({
             'latest_blogs': Blog.objects.order_by('-created_at')[:3],
             'latest_projects': Project.objects.order_by('-created_at')[:3],
-    })
+            })
        
         return context
 
