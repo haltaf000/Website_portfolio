@@ -25,7 +25,7 @@ class HomeView(TemplateView):
             data = response.json()
             rating = data["chess_rapid"]["last"]["rating"]
             # Cache for 10 minutes (600 seconds)
-            cache.set('rapid_rating', rating, 600)
+            cache.set('rapid_rating', rating, 3600)
             return rating
         except (requests.exceptions.RequestException, KeyError):
             return None
