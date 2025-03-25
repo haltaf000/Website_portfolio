@@ -20,12 +20,12 @@ class HomeView(TemplateView):
         headers = {"User-Agent": "my-personal-site/1.0 (https://yourdomain.com)"}
         
         try:
-            response = requests.get(url, headers=headers)
+            response = requests.get(url, headers=headers, timeout=3)
             response.raise_for_status()
             data = response.json()
             rating = data["chess_rapid"]["last"]["rating"]
             # Cache for 10 minutes (600 seconds)
-            cache.set('rapid_rating', rating, 3600)
+            cache.set('rapid_rating', rating, 600)
             return rating
         except (requests.exceptions.RequestException, KeyError):
             return None
