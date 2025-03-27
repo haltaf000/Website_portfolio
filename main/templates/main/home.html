@@ -4,21 +4,17 @@
 
 {% block content %}
 <section>
-    <!-- Name and Tagline -->
     <div class="nameContainer">
         <h1>Haider Altaf</h1>
         <p class="darkerText">Building ideas with code, one project at a time.</p>
     </div>
 
-    <!-- Stats Container -->
     <div class="statsContainer">
-        <!-- Profile Image -->
         <div class="imgContainer">
             <img src="https://media.licdn.com/dms/image/v2/C4D03AQHq1ULSb3uTqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620674623655?e=1747872000&v=beta&t=7kccdkvFAM5RQk9pY6Wd1uIRKCYXW-a_plMzKoiiAq4"
                 alt="profile_img">
         </div>
 
-        <!-- Stats Section -->
         <div class="stats darkerText">
             <div>
                 <div>
@@ -41,48 +37,44 @@
         </div>
     </div>
 
-    <!-- About Me Section -->
     <p class="aboutMe">
-        Hi, I'm Haider Altaf, a passionate software engineer specializing in backend development. I'm fascinated by the
-        worlds of <strong>MLOps</strong> and <strong>Data Science</strong>, where code meets data-driven solutions.
-        Outside
-        of work, I sharpen my problem-solving skills as a chess enthusiast with an 1800 ELO on Chess.com. I also enjoy
-        sharing my knowledge through teaching chess and coding online, empowering others to excel in their journey.
+        Hello, I'm Haider Altaf—a dedicated software engineer with a passion for backend development.
+         I blend innovative code with data-driven insights in the realms of <strong>MLOps</strong> and 
+         <strong>Data Science</strong>, constantly pushing the boundaries of what's possible. When I'm 
+         not immersed in development, I challenge my mind at the chessboard, a hobby that sharpens my 
+         strategic thinking (and yes, I proudly hold an <strong>{{ rapid_elo }}</strong> ELO on Chess.com).  
     </p>
     
-    
-  
-    <!-- Outreach Section -->
-    <div>
-        <h2 class="darkerText headerText">Contact Me:</h2>
-        <p>Feel Free to message me if you want to chat or collab!</p>
-        <br>
-        <div class="outreach-container">
-            <a class="outreach darkerText" href="mailto:haideraltaf804@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Haider,%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out." >
-                <i class="fa-solid fa-arrow-right"></i>
-                <p class="darkerText">Email Me</p>
-            </a>
-            <a class="outreach darkerText" href="https://www.linkedin.com/in/haideraltaf/">
-                <i class="fa-brands fa-linkedin"></i>
-                <p class="darkerText">LinkedIn</p>
-            </a>
-            <a class="outreach darkerText" href="https://github.com/haltaf000">
-                <i class="fa-brands fa-github"></i>
-                <p class="darkerText">GitHub</p>
-            </a>
-            <a class="outreach darkerText" href="https://www.chess.com/member/haltaff">
-                <i class="fa-solid fa-chess"></i>
-                <p class="darkerText">Chess.com</p>
-            </a>
-        </div>
-        
-    </div>
-
 </section>
+  
+<section id="contact">
+    <div class="nameContainer">
+        <h2 class="darkerText headerText">Contact Me:</h2>
+        <p>Feel free to message me if you want to chat or collab!</p>
+    </div>
+    
+    <div class="outreach-container">
+      <a class="outreach darkerText" href="mailto:haideraltaf804@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Haider,%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out.">
+        <i class="fa-solid fa-arrow-right"></i>
+        <p>Email Me</p>
+      </a>
+      <a class="outreach darkerText" href="https://www.linkedin.com/in/haideraltaf/">
+        <i class="fa-brands fa-linkedin"></i>
+        <p>LinkedIn</p>
+      </a>
+      <a class="outreach darkerText" href="https://github.com/haltaf000">
+        <i class="fa-brands fa-github"></i>
+        <p>GitHub</p>
+      </a>
+      <a class="outreach darkerText" href="https://www.chess.com/member/haltaff">
+        <i class="fa-solid fa-chess"></i>
+        <p>Chess.com</p>
+      </a>
+    </div>
+  </section>
 
-<!-- Projects and Blogs Section -->
+
 <section class="projectContainer">
-    <!-- Latest Blogs -->
     <h2 class="darkerText headerText">Latest Blogs</h2>
     <div class="projectItem">
         <div>
@@ -96,7 +88,6 @@
         </div>
     </div>
 
-    <!-- Latest Projects -->
     <h2 class="darkerText headerText">Latest Projects</h2>
     <div class="projectItem">
         <div>

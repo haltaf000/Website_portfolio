@@ -143,23 +143,53 @@ span {
     color: rgb(83, 235, 116);
 }
 
-/* Buttons and Call-to-Actions */
+/* Outreach Section Overrides */
+#contact .headerText {
+    margin-bottom: 4px;
+    /* Reduced space below the header */
+}
+
+#contact p {
+    margin-top: 4px;
+    /* Reduced space above the paragraph */
+}
+
+#contact .outreach span {
+    color: var(--accent-color);
+    /* New span color for this section */
+}
+
+/* Outreach Buttons and Container */
 .outreach {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 16px;
     cursor: pointer;
-    /* Removed margin-right: auto to allow proper inline placement */
     text-decoration: none;
     color: var(--text-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
 }
 
-/* New container to force all outreach links on the same line */
+.outreach:hover {
+    background-color: var(--border-color);
+}
+
 .outreach-container {
     display: flex;
     flex-direction: row;
     gap: 24px;
     justify-content: center;
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 640px) {
+    .outreach-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
 }
 
 /* Header and Navigation */
