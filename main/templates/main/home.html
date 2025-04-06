@@ -3,101 +3,117 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<section>
-    <div class="nameContainer">
-        <h1>Haider Altaf</h1>
-        <p class="darkerText">Building ideas with code, one project at a time.</p>
+<section class="hero-section text-center mb-5">
+    <div class="profile-img-container mb-4 mx-auto">
+        <img src="https://media.licdn.com/dms/image/v2/C4D03AQHq1ULSb3uTqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620674623655?e=1747872000&v=beta&t=7kccdkvFAM5RQk9pY6Wd1uIRKCYXW-a_plMzKoiiAq4"
+            alt="Haider Altaf" class="profile-img">
     </div>
-
-    <div class="statsContainer">
-        <div class="imgContainer">
-            <img src="https://media.licdn.com/dms/image/v2/C4D03AQHq1ULSb3uTqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1620674623655?e=1747872000&v=beta&t=7kccdkvFAM5RQk9pY6Wd1uIRKCYXW-a_plMzKoiiAq4"
-                alt="profile_img">
-        </div>
-
-        <div class="stats darkerText">
-            <div>
-                <div>
-                    <i class="fa-solid fa-computer"></i>
-                </div>
-                <p>Backend Engineer interested in MLOps and Data Science</p>
-            </div>
-            <div>
-                <div>
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <p>Python, JavaScript, C++</p>
-            </div>
-            <div>
-                <div>
-                    <i class="fa-solid fa-chess-board"></i>
-                </div>
-                <p>Live Chess.com Elo: <span>{{ rapid_elo }}</span></p>
-            </div>
-        </div>
-    </div>
-
-    <p class="aboutMe">
-        Hello, I'm Haider Altaf—a dedicated software engineer with a passion for backend development.
-         I blend innovative code with data-driven insights in the realms of <strong>MLOps</strong> and 
-         <strong>Data Science</strong>, constantly pushing the boundaries of what's possible. When I'm 
-         not immersed in development, I challenge my mind at the chessboard, a hobby that sharpens my 
-         strategic thinking (and yes, I proudly hold an <strong>{{ rapid_elo }}</strong> ELO on Chess.com).  
-    </p>
-    
+    <h1 class="display-5 fw-bold mb-3">Haider Altaf</h1>
+    <p class="lead">Backend Engineer specializing in MLOps and Data Science</p>
 </section>
-  
-<section id="contact">
-    <div class="nameContainer">
-        <h2 class="darkerText headerText">Contact Me:</h2>
-        <p>Feel free to message me if you want to chat or collab!</p>
-    </div>
-    
-    <div class="outreach-container">
-      <a class="outreach darkerText" href="mailto:haideraltaf804@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Haider,%0A%0AI%20came%20across%20your%20portfolio%20and%20wanted%20to%20reach%20out.">
-        <i class="fa-solid fa-arrow-right"></i>
-        <p>Email Me</p>
-      </a>
-      <a class="outreach darkerText" href="https://www.linkedin.com/in/haideraltaf/">
-        <i class="fa-brands fa-linkedin"></i>
-        <p>LinkedIn</p>
-      </a>
-      <a class="outreach darkerText" href="https://github.com/haltaf000">
-        <i class="fa-brands fa-github"></i>
-        <p>GitHub</p>
-      </a>
-      <a class="outreach darkerText" href="https://www.chess.com/member/haltaff">
-        <i class="fa-solid fa-chess"></i>
-        <p>Chess.com</p>
-      </a>
-    </div>
-  </section>
 
+<section class="about-section mb-5">
+    <h2 class="h4 mb-4 section-title">About Me</h2>
+    <div class="card">
+        <div class="card-body">
+            <p>
+                I'm a dedicated software engineer with a passion for backend development. 
+                I blend innovative code with data-driven insights in the realms of <strong>MLOps</strong> and 
+                <strong>Data Science</strong>, constantly pushing the boundaries of what's possible. When I'm 
+                not immersed in development, I challenge my mind at the chessboard (currently rated 
+                <strong>{{ rapid_elo }}</strong> on Chess.com).
+            </p>
+        </div>
+    </div>
+</section>
 
-<section class="projectContainer">
-    <h2 class="darkerText headerText">Latest Blogs</h2>
-    <div class="projectItem">
-        <div>
+<section class="skills-section mb-5">
+    <h2 class="h4 mb-4 section-title">Skills & Expertise</h2>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-server me-3 fa-lg skill-icon"></i>
+                        <h3 class="h6 mb-0">Backend Development</h3>
+                    </div>
+                    <p class="small mb-0">Building robust and scalable server-side applications and APIs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-robot me-3 fa-lg skill-icon"></i>
+                        <h3 class="h6 mb-0">MLOps</h3>
+                    </div>
+                    <p class="small mb-0">Deploying and maintaining machine learning models in production.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-chess me-3 fa-lg skill-icon"></i>
+                        <h3 class="h6 mb-0">Strategic Thinking</h3>
+                    </div>
+                    <p class="small mb-0">Chess enthusiast with a {{ rapid_elo }} rating, applying strategic planning to development.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="latest-content mb-5">
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <h2 class="h4 mb-4 section-title">Latest Blog Posts</h2>
             {% for blog in latest_blogs %}
-            <h3><a href="{% url 'main:blog_detail' blog.slug %}">{{ blog.title }}</a></h3>
-            <p>{{ blog.content|truncatewords:20 }}</p>
-            <small class="darkerText">({{ blog.created_at|date:"F j, Y" }})</small>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="h5"><a href="{% url 'main:blog_detail' blog.slug %}">{{ blog.title }}</a></h3>
+                    <p class="mb-2">{{ blog.content|truncatewords:20 }}</p>
+                    <p class="mb-0 text-muted">{{ blog.created_at|date:"F j, Y" }}</p>
+                </div>
+            </div>
             {% empty %}
-            <p>No blogs available.</p>
+            <div class="card">
+                <div class="card-body">
+                    <p class="mb-0">No blogs available.</p>
+                </div>
+            </div>
             {% endfor %}
+            <a href="{% url 'main:blog_list' %}" class="btn btn-outline-primary mt-3">View All Posts</a>
         </div>
-    </div>
-
-    <h2 class="darkerText headerText">Latest Projects</h2>
-    <div class="projectItem">
-        <div>
+        
+        <div class="col-md-6">
+            <h2 class="h4 mb-4 section-title">Recent Projects</h2>
             {% for project in latest_projects %}
-            <h3><a href="{% url 'main:project_detail' project.slug %}">{{ project.title }}</a></h3>
-            <p>{{ project.description|truncatewords:20 }}</p>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h3 class="h5"><a href="{% url 'main:project_detail' project.slug %}">{{ project.title }}</a></h3>
+                    <p class="mb-2">{{ project.description|truncatewords:20 }}</p>
+                </div>
+            </div>
             {% empty %}
-            <p>No projects available.</p>
+            <div class="card">
+                <div class="card-body">
+                    <p class="mb-0">No projects available.</p>
+                </div>
+            </div>
             {% endfor %}
+            <a href="{% url 'main:project_list' %}" class="btn btn-outline-primary mt-3">View All Projects</a>
         </div>
     </div>
+</section>
+
+<section class="cta-section text-center py-5 rounded-3">
+    <h2 class="h4 mb-4">Let's Work Together</h2>
+    <p class="mb-4">I'm always interested in hearing about new projects and opportunities.</p>
+    <a href="mailto:haideraltaf804@gmail.com" class="btn btn-primary px-4">
+        <i class="fas fa-paper-plane me-2"></i> Get In Touch
+    </a>
 </section>
 {% endblock %}

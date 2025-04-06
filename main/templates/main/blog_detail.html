@@ -1,44 +1,45 @@
 {% extends "main/layout.html" %}
 
-{% block title %}{{ blog.title }} - The Blog Times{% endblock %}
+{% block title %}{{ blog.title }} | Haider Altaf{% endblock %}
 
 {% block content %}
-<div class="nyt-article">
-    <!-- Title -->
-    <h4 class="nyt-headline">{{ blog.title }}</h4>
+<article class="blog-detail">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1 class="h3 card-title">{{ blog.title }}</h1>
+            
+            <div class="d-flex gap-4 text-muted mb-4">
+                <p class="mb-0">
+                    <i class="far fa-calendar me-2"></i>
+                    Published: {{ blog.created_at|date:"F j, Y" }}
+                </p>
+                <p class="mb-0">
+                    <i class="fas fa-rotate me-2"></i>
+                    Updated: {{ blog.updated_at|date:"F j, Y" }}
+                </p>
+            </div>
 
-    <!-- Publish and Update Dates -->
-    <div class="nyt-meta">
-        <p class="nyt-date">
-            <i class="fa-solid fa-calendar"></i>
-            Published: {{ blog.created_at|date:"F j, Y" }}
-        </p>
-        <p class="nyt-date">
-            <i class="fa-solid fa-rotate"></i>
-            Updated: {{ blog.updated_at|date:"F j, Y" }}
-        </p>
+            <div class="blog-content">
+                {{ blog.content|linebreaks }}
+            </div>
+        </div>
     </div>
 
-    <!-- Big Dividing Line -->
-    <hr class="nyt-divider">
-
-    <!-- Article Content -->
-    <div class="nyt-content">
-        {{ blog.content|linebreaks }}
-    </div>
-
-    <!-- Footer with Actions -->
-    <div class="nyt-footer">
+    <div class="d-flex justify-content-between">
         {% if user.is_authenticated and user.is_superuser %}
-        <div class="nyt-admin-actions">
-            <a href="{% url 'main:blog_update' blog.slug %}" class="nyt-admin-link">Edit Post</a>
-            <a href="{% url 'main:blog_delete' blog.slug %}" class="nyt-admin-link">Delete Post</a>
+        <div>
+            <a href="{% url 'main:blog_update' blog.slug %}" class="btn btn-outline-primary me-2">
+                <i class="fas fa-edit me-1"></i>Edit Post
+            </a>
+            <a href="{% url 'main:blog_delete' blog.slug %}" class="btn btn-outline-danger">
+                <i class="fas fa-trash me-1"></i>Delete Post
+            </a>
         </div>
         {% endif %}
-        <a href="{% url 'main:blog_list' %}" class="nyt-back-link">
-            <i class="fa-solid fa-arrow-left"></i>
-            Back to Blog
+        
+        <a href="{% url 'main:blog_list' %}" class="btn btn-primary">
+            <i class="fas fa-arrow-left me-1"></i>Back to Blog
         </a>
     </div>
-</div>
+</article>
 {% endblock %}

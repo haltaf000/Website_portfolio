@@ -3,45 +3,48 @@
 {% block title %}Projects{% endblock %}
 
 {% block content %}
-<section class="projectContainer">
-    <div class="nameContainer">
-        <h1>Production Systems</h1>
+<section class="project-list">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0">Production Systems</h1>
         {% if user.is_authenticated and user.is_superuser %}
-        <a href="{% url 'main:project_create' %}" class="outreach">
-            <i class="fa-solid fa-plus"></i>
-            <p>Create New Project</p>
+        <a href="{% url 'main:project_create' %}" class="btn btn-primary">
+            <i class="fas fa-plus me-2"></i>Create New
         </a>
         {% endif %}
     </div>
 
-    <div class="projectItem">
-        <div>
-            {% for project in projects %}
-            <div class="projectItem">
-                <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                    <h3>{{ project.title }}</h3>
-                    <small class="darkerText">v{{ project.version }}</small>
+    <div class="project-grid">
+        {% for project in projects %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-baseline mb-3">
+                    <h3 class="h5 mb-0">
+                        <a href="{% url 'main:project_detail' project.pk %}" class="text-decoration-none">{{ project.title }}</a>
+                    </h3>
+                    <small class="text-muted">v{{ project.version }}</small>
                 </div>
-                <p class="darkerText">{{ project.description }}</p>
-                <div class="outreach">
+                
+                <p class="mb-4">{{ project.description }}</p>
+                
+                <div class="d-flex gap-3">
                     {% if project.url %}
-                    <a href="{{ project.url }}" class="outreach">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        <p>Live Demo</p>
+                    <a href="{{ project.url }}" target="_blank" class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-external-link-alt me-1"></i>Live Demo
                     </a>
                     {% endif %}
-                    <a href="{% url 'main:project_detail' project.pk %}" class="outreach">
-                        <i class="fa-solid fa-code"></i>
-                        <p>Technical Details</p>
+                    <a href="{% url 'main:project_detail' project.pk %}" class="btn btn-outline-secondary btn-sm">
+                        <i class="fas fa-code me-1"></i>Details
                     </a>
                 </div>
             </div>
-            {% if not forloop.last %}
-            <hr class="divider">{% endif %}
-            {% empty %}
-            <p class="darkerText">No projects available.</p>
-            {% endfor %}
         </div>
+        {% empty %}
+        <div class="card">
+            <div class="card-body">
+                <p class="text-muted mb-0">No projects available.</p>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}
