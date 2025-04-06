@@ -13,14 +13,22 @@
 <body>
     <header>
         <div class="container">
-            <nav>
-                <a href="{% url 'main:home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
-                <a href="{% url 'main:blog_list' %}" class="{% if 'blog' in request.resolver_match.url_name %}active{% endif %}">Blog</a>
-                <a href="{% url 'main:project_list' %}" class="{% if 'project' in request.resolver_match.url_name %}active{% endif %}">Projects</a>
-                <div class="theme-switcher">
-                    <button class="theme-btn" data-theme="default"></button>
-                    <button class="theme-btn" data-theme="dark"></button>
-                    <button class="theme-btn" data-theme="blue"></button>
+            <nav class="navbar">
+                <!--<div class="navbar-brand">Haider Altaf</div> -->
+                <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="navbar-collapse">
+                    <div class="navbar-nav">
+                        <a href="{% url 'main:home' %}" class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+                        <a href="{% url 'main:blog_list' %}" class="{% if 'blog' in request.resolver_match.url_name %}active{% endif %}">Blog</a>
+                        <a href="{% url 'main:project_list' %}" class="{% if 'project' in request.resolver_match.url_name %}active{% endif %}">Projects</a>
+                    </div>
+                    <div class="theme-switcher">
+                        <button class="theme-btn" data-theme="default"></button>
+                        <button class="theme-btn" data-theme="dark"></button>
+                        <button class="theme-btn" data-theme="blue"></button>
+                    </div>
                 </div>
             </nav>
         </div>
