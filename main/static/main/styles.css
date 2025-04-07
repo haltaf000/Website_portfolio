@@ -279,16 +279,15 @@ body[data-theme="dark"] {
 }
 
 body[data-theme="blue"] {
-    --primary-color: #ffffff;
-    --secondary-color: #c7d3dd;
-    --accent-color: #3e92cc;
-    --bg-color: #0a2463;
-    --card-bg: #1e3b8a;
-    --card-text: #f8f9fa;
-    --text-color: #ffffff;
-    --card-border: rgba(255, 255, 255, 0.1);
+    --primary-color: #e6e9ef;
+    --secondary-color: #aab4c3;
+    --accent-color: #007bff;
+    --bg-color: #0f111a;
+    --card-bg: #1c1f2b;
+    --card-text: #f1f3f5;
+    --text-color: #e9ecef;
+    --card-border: rgba(255, 255, 255, 0.05);
 }
-
 /* Mobile Styles */
 @media (max-width: 768px) {
     .container {
