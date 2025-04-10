@@ -93,7 +93,7 @@
             {% for project in latest_projects %}
             <div class="card mb-3">
                 <div class="card-body">
-                    <h3 class="h5"><a href="{% url 'main:project_detail' project.slug %}">{{ project.title }}</a></h3>
+                    <h3 class="h5"><a href="{% url 'main:project_detail' pk=project.pk %}">{{ project.title }}</a></h3>
                     <p class="mb-2">{{ project.description|truncatewords:20 }}</p>
                 </div>
             </div>
