@@ -1,2 +1,1 @@
-web: gunicorn portfolio_web.wsgi --log-file - 
-web: python manage.py migrate && gunicorn portfolio_web.wsgi
+web: python manage.py migrate && gunicorn personal_web.wsgi:application --bind 0.0.0.0:$PORT --log-file -
