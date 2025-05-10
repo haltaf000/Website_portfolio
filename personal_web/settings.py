@@ -113,7 +113,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+
+# Where Django will look for your source static files in development
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Where collectstatic will collect static files for production
 STATIC_ROOT = BASE_DIR / 'assets'
+
+# Use WhiteNoise to serve static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
