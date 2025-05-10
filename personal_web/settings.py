@@ -111,15 +111,21 @@ TIME_ZONE = 'America/New_York'
 USE_I18N = True
 USE_TZ = True
 
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = 'America/New_York'
+USE_I18N = True
+USE_TZ = True
+
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-# Where Django will look for your source static files in development
+# Include both project-level and app-level static sources
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'static',           
+    BASE_DIR / 'main' / 'static',  
 ]
 
-# Where collectstatic will collect static files for production
+# Where collectstatic will collect files for production
 STATIC_ROOT = BASE_DIR / 'assets'
 
 # Use WhiteNoise to serve static files
