@@ -16,7 +16,7 @@ class HomeView(TemplateView):
         if cached_rating:
             return cached_rating
             
-        url = "https://api.chess.com/pub/player/haltaff/stats"
+        url = "https://api.chess.com/pub/player/haltaf/stats"
         headers = {"User-Agent": "my-personal-site/1.0 (https://yourdomain.com)"}
         
         try:
